@@ -34,7 +34,7 @@ const events = [
   },
   {
     title: "Choir Practice",
-    date: "Every Saturday", // ✅ changed from `day` to `date`
+    date: "Every Tuesday & Saturday", // ✅ changed from `day` to `date`
     time: "2:00 PM – 5:00 PM",
     location: "City of Hope Church, Nyatechi",
     icon: <FaMusic className="text-warning" size={32} />, // ✅ Correct icon

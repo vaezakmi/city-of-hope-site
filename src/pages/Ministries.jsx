@@ -10,6 +10,7 @@ import {
   FaUserTie,
 } from "react-icons/fa";
 import "../styles/Ministries.css";
+import { FaHandFist } from "react-icons/fa6";
 
 const ministries = [
   {
@@ -17,8 +18,8 @@ const ministries = [
     title: "Youth Ministry",
     description: "Empowering the next generation with purpose, leadership, and passion for Christ.",
     leadership: [
-      { name: "John Doe", role: "Youth Pastor" },
-      { name: "Sarah Mwangi", role: "Mentorship Leader" },
+      { name: "Paul Sinda", role: "Youth Leader" },
+      { name: "Tillen Chacha", role: "Mentorship Leader" },
     ],
     bg: "linear-gradient(135deg, #e3f2fd, #f8f9fa)",
   },
@@ -27,7 +28,7 @@ const ministries = [
     title: "Children's Church",
     description: "Teaching the Word of God in fun, engaging ways for kids to know Jesus early.",
     leadership: [
-      { name: "Mary Wambui", role: "Children’s Pastor" },
+      { name: "Charles Waitere", role: "Children’s Pastor" },
       { name: "James Kariuki", role: "Volunteer Coordinator" },
     ],
     bg: "linear-gradient(135deg, #e8f5e9, #fefefe)",
@@ -66,6 +67,16 @@ const ministries = [
     icon: <FaBible size={40} className="text-secondary mb-3" />,
     title: "Bible Study Groups",
     description: "Growing in faith through weekly study groups and fellowship around the Word.",
+    leadership: [
+      { name: "Michael Karanja", role: "Discipleship Leader" },
+      { name: "Beatrice Oloo", role: "Small Groups Manager" },
+    ],
+    bg: "linear-gradient(135deg, #ede7f6, #fafafa)",
+  },
+  {
+    icon: <FaHandFist size={40} className="text-secondary mb-3" />,
+    title: "Men of Hope",
+    description: "A brotherhood built on prayer, strength, healing, and support for every man.",
     leadership: [
       { name: "Michael Karanja", role: "Discipleship Leader" },
       { name: "Beatrice Oloo", role: "Small Groups Manager" },
