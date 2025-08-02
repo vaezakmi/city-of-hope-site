@@ -1,139 +1,140 @@
-/* Home.css */
-
-/* Hero Section */
+/* === HERO SECTION === */
 .hero-section {
-  height: 80vh;
   background-size: cover;
   background-position: center;
   position: relative;
+  padding: 6rem 1rem;
+  color: #fff;
+  text-align: center;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  overflow: hidden;
 }
 
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
 }
 
-.hero-overlay h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-  color: #fff;
-  animation: glow 2.5s ease-in-out infinite alternate;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.hero-overlay p {
-  font-size: 1.25rem;
-  color: #f0f0f0;
-  margin-top: 1rem;
+/* === GLOWING CARD EFFECT === */
+.card-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.hero-overlay .btn {
-  font-size: 1.125rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
-  transition: all 0.3s ease;
-}
-
-.hero-overlay .btn:hover {
-  background-color: #0b5ed7;
-  box-shadow: 0 0 20px rgba(13, 110, 253, 0.8);
-}
-
-/* Join Us Card */
-.join-card {
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-/* Scripture Highlight */
-.scripture-highlight {
-  font-size: 1.5rem;
-  font-style: italic;
-  color: #0d6efd;
-}
-
-/* Ministry Cards */
-.ministry-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 1.5rem;
-}
-
-.ministry-card:hover {
+.card-glow:hover {
+  box-shadow: 0 0 25px rgba(13, 110, 253, 0.4);
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Bouncing Icon */
-.bouncing-icon {
-  animation: bounce 2s infinite ease-in-out;
+/* === ICON PULSE === */
+.card-icon-pulse {
+  animation: pulse 2s infinite ease-in-out;
 }
 
-/* Testimonials */
-.carousel .card {
-  border-radius: 1rem;
-  background: #f8f9fa;
-  border: none;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-}
-
-/* Section Titles */
-.section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #0d6efd;
-  margin-bottom: 1rem;
-}
-
-/* Floating Button */
-.floating-prayer {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1050;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.5);
-  transition: transform 0.3s ease;
-}
-
-.floating-prayer:hover {
-  transform: scale(1.1);
-}
-
-/* Section Padding */
-section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-/* Animations */
-@keyframes bounce {
+@keyframes pulse {
   0%, 100% {
-    transform: translateY(0);
+    transform: scale(1);
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: scale(1.08);
   }
 }
 
-@keyframes glow {
+/* === TESTIMONIAL CARDS === */
+.carousel .card {
+  background-color: #fdfdfd;
+  border-radius: 1rem;
+}
+
+.carousel .blockquote-footer {
+  font-style: italic;
+  color: #555;
+}
+
+/* === VISIT SECTION CARDS === */
+.ratio iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === FLOATING PRAYER BUTTON === */
+.floating-prayer-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  font-size: 1.5rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  animation: bounceIn 1s ease;
+}
+
+@keyframes bounceIn {
   0% {
-    text-shadow: 0 0 5px #fff, 0 0 15px #0d6efd, 0 0 25px #0d6efd;
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
   }
 
   100% {
-    text-shadow: 0 0 10px #fff, 0 0 20px #0d6efd, 0 0 30px #0d6efd;
+    transform: scale(1);
+  }
+}
+
+/* === GENERAL UTILITIES === */
+.text-primary {
+  color: #0d6efd !important;
+}
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+.bg-light {
+  background-color: #f9f9f9 !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* === RESPONSIVENESS === */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 4rem 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .floating-prayer-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 0.5rem 0.75rem;
   }
 }

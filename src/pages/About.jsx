@@ -8,7 +8,7 @@ import {
   Home,
   Users as UsersIcon,
   Globe,
-  Youtube
+  YoutubeIcon,
 } from "lucide-react";
 
 import pastorImg from "../assets/pastor.jpg";
@@ -49,7 +49,7 @@ const milestones = [
   {
     year: "2020",
     title: "Online Ministry Launched",
-    icon: <FaFacebook className="text-primary me-2" size={22} />,
+    icon: <YoutubeIcon className="text-primary me-2" size={22} />,
     description:
       "In 2020, the ministry embraced digital platforms by launching live streams and outreach on Facebook and YouTube. This bold shift to online ministry enabled the message of hope to reach thousands of viewers across the globe, expanding the church’s impact beyond physical boundaries.",
   },
@@ -123,8 +123,9 @@ function About() {
             <Card className="p-4 border-0 shadow rounded-4 bg-light h-100">
               <h3 className="text-primary fw-bold mb-3">Our Mission</h3>
               <p>
-                We exist to build and expand the Kingdom of God, by preaching and teaching the holistic Gospel of Jesus Christ for the transformation and fulfillment of lives.
-(Matt.28:18-20)
+                We exist to build and expand the Kingdom of God, 
+                by preaching and teaching the holistic Gospel of Jesus Christ for the transformation and fulfillment of lives.
+                (Matt.28:18-20)
               </p>
             </Card>
           </motion.div>

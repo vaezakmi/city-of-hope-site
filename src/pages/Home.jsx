@@ -4,6 +4,60 @@ import { Book, Music, Users } from "lucide-react";
 import heroImg from "../assets/hero.jpg";
 import "../styles/Home.css";
 
+function VisitSection() {
+  return (
+    <Container className="my-5">
+      <h2 className="text-center text-primary fw-bold mb-5">Plan Your Visit</h2>
+      <Row className="g-4">
+        {/* MAP CARD */}
+        <Col md={6}>
+          <Card className="shadow-lg rounded-4 overflow-hidden h-100">
+            <Card.Body className="p-0">
+              <div className="ratio ratio-16x9">
+                <iframe
+                  title="City of Hope Church Nyatechi"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.950823329179!2d34.6626!3d-0.7607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182cb70f6db79497%3A0xab95cf8bf2f38e62!2sPEFA%20CITY%20OF%20HOPE%20CHURCH%2C%20NYATECHI!5e0!3m2!1sen!2ske!4v1753419707062!5m2!1sen!2ske"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <Card.Footer className="bg-white text-center py-3">
+                <h5 className="fw-bold text-primary mb-1">Visit Us</h5>
+                <p className="text-muted mb-0">
+                  QJR3+M44, PEFA City of Hope Church, Nyatechi
+                </p>
+              </Card.Footer>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* WELCOME VIDEO CARD */}
+        <Col md={6}>
+          <Card className="shadow-lg rounded-4 overflow-hidden h-100">
+            <Card.Body className="p-0">
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Welcome to City of Hope"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <Card.Footer className="bg-white text-center py-3">
+                <h5 className="fw-bold text-primary mb-1">Welcome to City of Hope</h5>
+                <p className="text-muted mb-0">
+                  Watch a special message from our pastoral team.
+                </p>
+              </Card.Footer>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
+}
+
 function Home() {
   return (
     <>
@@ -107,7 +161,7 @@ function Home() {
         </Row>
       </Container>
 
-      {/* Testimonials */}
+      {/* Testimonials Section */}
       <Container className="my-5">
         <h3 className="text-center fw-bold mb-4 text-primary">Testimonials</h3>
         <Carousel fade indicators={false}>
@@ -137,40 +191,8 @@ function Home() {
         </Carousel>
       </Container>
 
-      {/* Map Section */}
-      <Container className="my-5 text-center">
-        <h4 className="mb-3 text-primary fw-bold">Visit Us</h4>
-        <p className="text-muted">
-          We’re located at <strong>QJR3+M44, PEFA City of Hope, Kenya</strong>
-        </p>
-        <div className="ratio ratio-16x9">
-          <iframe
-            title="City of Hope Church Nyatechi"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.950823329179!2d34.6626!3d-0.7607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182cb70f6db79497%3A0xab95cf8bf2f38e62!2sPEFA%20CITY%20OF%20HOPE%20CHURCH%2C%20NYATECHI!5e0!3m2!1sen!2ske!4v1753419707062!5m2!1sen!2ske"
-            style={{ border: 0, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </Container>
-
-      {/* Welcome Video */}
-      <Container className="my-5 text-center">
-        <h4 className="mb-3 text-primary fw-bold">Watch Our Welcome Video</h4>
-        <div className="ratio ratio-16x9">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Welcome Video"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </Container>
-
-      {/* Floating Prayer Button */}
-      <a href="/prayer" className="btn btn-primary rounded-circle floating-prayer-btn">
-        🙏
-      </a>
+      {/* Visit Section */}
+      <VisitSection />
     </>
   );
 }

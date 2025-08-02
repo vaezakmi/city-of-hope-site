@@ -1,7 +1,26 @@
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
 import { FaChurch, FaHandshake, FaMapMarkedAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import "../styles/NewHere.css";
+
+const carouselImages = [
+  {
+    src: "src/assets/cathedral.jpg",
+    alt: "Main Sanctuary",
+  },
+  {
+    src: "src/assets/cathedral2.jpg",
+    alt: "Spirit-filled Worship",
+  },
+  {
+    src: "src/assets/cathedral3.jpg",
+    alt: "Church Community",
+  },
+  {
+    src: "src/assets/cathedral4.jpg",
+    alt: "Church Community",
+  },
+];
 
 function NewHere() {
   return (
@@ -44,20 +63,26 @@ function NewHere() {
             </div>
           </Col>
 
-          {/* Welcome Image */}
+          {/* Welcome Carousel */}
           <Col md={6}>
             <motion.div
-              initial={{ scale: 0.95 }}
+              initial={{ opacity: 0.8 }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
               className="img-wrapper"
             >
-              <Card className="image-card border-0 overflow-hidden shadow-sm rounded-4">
-                <Card.Img
-                  src="src/assets/cathedral.jpg"
-                  alt="Welcome to PEFA City of Hope Cathedral"
-                />
-              </Card>
+              <Carousel fade interval={4000} controls={false} indicators={true} className="rounded-4 shadow">
+                {carouselImages.map((image, index) => (
+                  <Carousel.Item key={index}>
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="d-block w-100 rounded-4"
+                      style={{ objectFit: "cover", height: "360px" }}
+                    />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
             </motion.div>
           </Col>
         </Row>
