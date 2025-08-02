@@ -3,15 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://pefacityofhope.org",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "bootstrap": "^5.3.7",
     "framer-motion": "^12.23.6",
+    "gh-pages": "^6.3.0",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
