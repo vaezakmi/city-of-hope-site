@@ -1,0 +1,139 @@
+/* Home.css */
+
+/* Hero Section */
+.hero-section {
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+.hero-overlay p {
+  font-size: 1.25rem;
+  color: #f0f0f0;
+  margin-top: 1rem;
+}
+
+.hero-overlay .btn {
+  font-size: 1.125rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.hero-overlay .btn:hover {
+  background-color: #0b5ed7;
+  box-shadow: 0 0 20px rgba(13, 110, 253, 0.8);
+}
+
+/* Join Us Card */
+.join-card {
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Scripture Highlight */
+.scripture-highlight {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #0d6efd;
+}
+
+/* Ministry Cards */
+.ministry-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1.5rem;
+}
+
+.ministry-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Bouncing Icon */
+.bouncing-icon {
+  animation: bounce 2s infinite ease-in-out;
+}
+
+/* Testimonials */
+.carousel .card {
+  border-radius: 1rem;
+  background: #f8f9fa;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0d6efd;
+  margin-bottom: 1rem;
+}
+
+/* Floating Button */
+.floating-prayer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.floating-prayer:hover {
+  transform: scale(1.1);
+}
+
+/* Section Padding */
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 15px #0d6efd, 0 0 25px #0d6efd;
+  }
+
+  100% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #0d6efd, 0 0 30px #0d6efd;
+  }
+}

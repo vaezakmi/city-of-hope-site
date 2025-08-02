@@ -13,39 +13,55 @@ import {
 
 import pastorImg from "../assets/pastor.jpg";
 import worshipImg from "../assets/worship.jpg";
+import { FaFacebook } from "react-icons/fa";
+import "../styles/About.css";
+
 
 const milestones = [
   {
-    year: "2010",
-    title: "City of Hope Founded",
+    year: "1995",
+    title: "Founding of City of Hope",
     icon: <Church className="text-primary me-2" size={22} />,
-    description: "A small prayer fellowship was born in a living room in Nairobi.",
+    description:
+      "In 1995, a humble yet powerful prayer fellowship took root in a modest living room in Nyatechi. What began as a small gathering of faithful believers seeking spiritual connection and purpose would eventually grow into the vibrant ministry known today as City of Hope.",
   },
   {
     year: "2013",
-    title: "First Church Building",
+    title: "First Temporary Church Building",
     icon: <Home className="text-primary me-2" size={22} />,
-    description: "We moved into our first permanent building with 80 seats.",
+    description:
+      "In 2013, the first physical structure for the church was established. Ingeniously crafted by deconstructing a local posho mill, this humble building marked a significant milestone — providing a dedicated space for worship, fellowship, and spiritual growth.",
   },
   {
-    year: "2016",
+    year: "2015",
+    title: "Establishment of the First Church",
+    icon: <Home className="text-primary me-2" size={22} />,
+    description:
+      "In 2015, the first official church was established, beginning with just five devoted members. Though small in number, their faith and unity laid a strong spiritual foundation that would shape the future of the ministry.",
+  },
+  {
+    year: "2020",
     title: "Community Outreach Begins",
     icon: <UsersIcon className="text-primary me-2" size={22} />,
-    description: "Started food drives, mentorships, and family support programs.",
+    description:
+      "In 2020, the ministry launched its first structured community outreach initiatives, including fellowships, mentorship programs, and family support services. Initial fellowships — Ebenezer, Shalom, and Agape — laid the groundwork for what would later grow into a vibrant network of spiritually grounded and socially impactful groups.",
   },
   {
-    year: "2019",
-    title: "Global Missions",
+    year: "2020",
+    title: "Online Ministry Launched",
+    icon: <FaFacebook className="text-primary me-2" size={22} />,
+    description:
+      "In 2020, the ministry embraced digital platforms by launching live streams and outreach on Facebook and YouTube. This bold shift to online ministry enabled the message of hope to reach thousands of viewers across the globe, expanding the church’s impact beyond physical boundaries.",
+  },
+  {
+    year: "2021",
+    title: "Global Missions Launched",
     icon: <Globe className="text-primary me-2" size={22} />,
-    description: "Sent our first international mission team and partnered abroad.",
-  },
-  {
-    year: "2023",
-    title: "Online Ministry",
-    icon: <Youtube className="text-primary me-2" size={22} />,
-    description: "Launched livestreams and YouTube outreach, reaching thousands.",
+    description:
+      "In 2021, the ministry took a bold step into global missions, drawing the attention and involvement of international partners and believers from the USA, India, Nigeria, and Tanzania. This marked the beginning of a broader spiritual impact beyond national borders.",
   },
 ];
+
 
 function About() {
   return (
@@ -107,8 +123,8 @@ function About() {
             <Card className="p-4 border-0 shadow rounded-4 bg-light h-100">
               <h3 className="text-primary fw-bold mb-3">Our Mission</h3>
               <p>
-                To passionately proclaim Jesus, disciple believers, care for the
-                broken, and transform our community with the light of Christ.
+                We exist to build and expand the Kingdom of God, by preaching and teaching the holistic Gospel of Jesus Christ for the transformation and fulfillment of lives.
+(Matt.28:18-20)
               </p>
             </Card>
           </motion.div>
@@ -122,8 +138,7 @@ function About() {
             <Card className="p-4 border-0 shadow rounded-4 bg-light h-100">
               <h3 className="text-primary fw-bold mb-3">Our Vision</h3>
               <p>
-                A Spirit-filled church influencing culture, raising godly
-                generations, and sending leaders to the nations.
+                To be A Church That Knows Christ and Makes Him Known To The whole World
               </p>
             </Card>
           </motion.div>
@@ -156,7 +171,22 @@ function About() {
           >
             <h3 className="text-primary fw-bold mb-3">Our Story</h3>
             <p>
-              From humble beginnings in 2010, City of Hope began as a small home fellowship—a gathering of passionate believers hungry for God’s presence. Over the years, that seed of faith has grown into a vibrant, thriving congregation marked by transformation, unity, and impact. We’ve witnessed marriages restored, addictions broken, callings awakened, and countless lives radically changed by the power of the Gospel. Through dynamic worship, sound biblical teaching, intentional discipleship, and Spirit-led outreach, City of Hope continues to be a beacon of light—bringing hope to the city and reaching beyond borders with the love of Christ.
+              
+City of Hope began not with grandeur, but with a whisper—a hunger for God's presence in the heart of Nyatechi. In 1995, a small group of believers gathered in a humble living room, seeking fellowship, prayer, and spiritual direction. It wasn’t a building or a name that made it special—it was the genuine passion for God and a vision for revival that stirred within their hearts.
+
+As the years passed, that spark grew. In 2013, a makeshift structure was crafted by dismantling a local posho mill—our very first physical space. It was nothing elaborate, but it was sacred ground. People came not for comfort, but for communion with the Divine.
+
+By 2015, the first official church was planted. It started with just five dedicated souls, each bringing their faith, hope, and sacrifice. That small gathering became the spiritual foundation upon which City of Hope would rise.
+
+In 2020, the heartbeat of the church turned outward. We launched intentional community outreach programs, including mentorships, fellowships, and family support. What began with three groups—Ebenezer, Shalom, and Agape—blossomed into a powerful movement of neighborhood fellowships, each rooted in love, truth, and community transformation.
+
+That same year, the world was shaken by a global pandemic—but rather than retreat, we advanced. Through Facebook and YouTube, City of Hope entered the digital mission field. Our online ministry reached thousands, with livestreams and gospel content breaking into homes and hearts across Kenya and beyond.
+
+In 2021, God expanded our borders. What once gathered in a single room now attracted international believers and partners from the USA, India, Nigeria, and Tanzania. City of Hope became more than a local church—it became a global voice of faith, unity, and healing.
+
+Today, City of Hope stands as a thriving congregation marked by miracles and movement. We've seen marriages restored, addictions broken, callings awakened, and countless lives transformed by the power of Jesus Christ. Every song sung, every message preached, every hand held in prayer carries the DNA of that first gathering in 1995—a people longing for God.
+
+As we look ahead, we remain rooted in our mission: to bring hope to the city, and to reach the world with the love of Christ.
 
             </p>
           </motion.div>
@@ -188,18 +218,24 @@ function About() {
                 variant="top"
                 src={pastorImg}
                 className="rounded-top"
-                style={{ height: "330px", objectFit: "cover" }}
+                style={{ height: "auto", objectFit: "cover" }}
                 alt="Lead Pastor"
               />
               <Card.Body>
-                <Card.Title className="fw-bold text-dark">
-                  Rev. Zablon Moseti
-                </Card.Title>
-                <Card.Text className="text-muted">Lead Shepherd</Card.Text>
-                <Button variant="outline-primary" href="/contact">
-                  Request Prayer
-                </Button>
-              </Card.Body>
+  <Card.Title className="fw-bold text-dark">
+    Rev. Zablon Moseti
+  </Card.Title>
+  <Card.Text className="text-muted">Lead Shepherd</Card.Text>
+  <Button
+    variant="outline-primary"
+    href="https://wa.me/254721257929?text=Hello%20Rev.%20Zablon%20Moseti,%20I%20would%20like%20to%20request%20prayer."
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Request Prayer
+  </Button>
+</Card.Body>
+
             </Card>
           </motion.div>
         </Col>

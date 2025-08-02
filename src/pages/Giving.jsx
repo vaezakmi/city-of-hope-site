@@ -1,6 +1,7 @@
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { Banknote, Smartphone, Globe, HelpCircle } from "lucide-react";
+import "../styles/Giving.css";
 
 function Giving() {
   return (
@@ -31,15 +32,15 @@ function Giving() {
               </div>
               <h5 className="fw-bold mb-3">KCB Bank Transfer</h5>
               <p><strong>Bank:</strong> KCB Kenya</p>
-              <p><strong>Account:</strong> City of Hope Church</p>
-              <p><strong>Number:</strong> 123 456 7890</p>
-              <p><strong>Branch:</strong> Nairobi CBD</p>
+              <p><strong>Paybill:</strong> 522522</p>
+              <p><strong>Number:</strong> 1256761273</p>
+              <p><strong>Branch:</strong> Kehancha</p>
               <p><strong>Swift:</strong> KCBLKENX</p>
             </Card>
           </motion.div>
         </Col>
 
-        {/* M-PESA */}
+        {/* M-PESA
         <Col md={6} lg={4}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -58,7 +59,7 @@ function Giving() {
               </small>
             </Card>
           </motion.div>
-        </Col>
+        </Col>*/}
 
         {/* International Giving */}
         <Col md={12} lg={4}>

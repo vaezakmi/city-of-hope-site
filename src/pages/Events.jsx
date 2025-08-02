@@ -1,7 +1,8 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
-import { FaMicrophoneAlt, FaMusic } from "react-icons/fa"; // ✅ Add FaMusic
+import { FaMusic } from "react-icons/fa";
+import "../styles/Events.css";
 
 const events = [
   {
@@ -33,17 +34,24 @@ const events = [
     icon: <MapPin className="text-danger" size={32} />,
   },
   {
-    title: "Choir Practice",
-    date: "Every Tuesday & Saturday", // ✅ changed from `day` to `date`
-    time: "2:00 PM – 5:00 PM",
+    title: "Worship Practice",
+    date: "Every Tuesday & Saturday",
+    time: "3:00 PM – 4:00 PM",
     location: "City of Hope Church, Nyatechi",
-    icon: <FaMusic className="text-warning" size={32} />, // ✅ Correct icon
+    icon: <FaMusic className="text-primary" size={32} />,
+  },
+  {
+    title: "Choir Practice",
+    date: "Every Tuesday & Saturday",
+    time: "4:00 PM – 5:00 PM",
+    location: "City of Hope Church, Nyatechi",
+    icon: <FaMusic className="text-warning" size={32} />,
   },
 ];
 
 function EventsSection() {
   return (
-    <Container className="my-5">
+    <Container className="events-section my-5 py-5">
       <motion.div
         className="text-center mb-5"
         initial={{ opacity: 0, y: -20 }}
@@ -62,20 +70,14 @@ function EventsSection() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.2 }}
+              transition={{ duration: 0.6, delay: idx * 0.15 }}
             >
-              <Card
-                className="p-4 border-0 shadow-lg rounded-4 bg-white h-100 event-card hover-scale"
-                style={{
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  cursor: "pointer",
-                }}
-              >
-                <div className="mb-3">{event.icon}</div>
-                <h5 className="fw-bold mb-1 text-dark">{event.title}</h5>
-                <p className="text-muted mb-1">{event.date}</p>
-                <p className="text-muted mb-1">{event.time}</p>
-                <small className="text-muted">{event.location}</small>
+              <Card className="event-card h-100">
+                <div className="event-icon mb-3">{event.icon}</div>
+                <h5 className="fw-bold text-dark">{event.title}</h5>
+                <p className="text-muted small mb-1">{event.date}</p>
+                <p className="text-muted small mb-1">{event.time}</p>
+                <p className="text-muted small">{event.location}</p>
               </Card>
             </motion.div>
           </Col>

@@ -2,36 +2,14 @@ import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { Book, Music, Users } from "lucide-react";
 import heroImg from "../assets/hero.jpg";
+import "../styles/Home.css";
 
 function Home() {
   return (
     <>
       {/* Hero Section */}
-      <div
-        style={{
-          backgroundImage: `url(${heroImg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "80vh",
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-            color: "white",
-            textAlign: "center",
-            padding: "2rem",
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
+      <div className="hero-section" style={{ backgroundImage: `url(${heroImg})` }}>
+        <div className="hero-content">
           <motion.h1
             className="display-4 fw-bold"
             initial={{ opacity: 0, y: 30 }}
@@ -68,8 +46,8 @@ function Home() {
             <Col md={8}>
               <h3 className="fw-bold text-dark mb-2">Join us this Sunday!</h3>
               <p className="mb-0 text-muted">
-                We gather every Sunday at <strong>8:30 AM</strong> for vibrant
-                worship, powerful teaching, and authentic fellowship.
+                We gather every Sunday at <strong>8:30 AM</strong> for vibrant worship,
+                powerful teaching, and authentic fellowship.
               </p>
             </Col>
             <Col md={4} className="mt-3 mt-md-0">
@@ -91,10 +69,10 @@ function Home() {
         <h4 className="fw-bold text-primary">
           “For I know the plans I have for you,” declares the Lord.
         </h4>
-        <p className="text-muted">– Jeremiah 29:11</p>
+        <p className="text-muted">&ndash; Jeremiah 29:11</p>
       </motion.div>
 
-      {/* Ministry Highlights with Bouncing Icons */}
+      {/* Ministry Highlights */}
       <Container className="my-5">
         <h3 className="text-center fw-bold mb-4 text-primary">What We Offer</h3>
         <Row className="g-4 mb-5">
@@ -111,11 +89,11 @@ function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.2 }}
                 >
-                  <Card className="p-4 text-center shadow-sm border-0 h-100 rounded-4">
+                  <Card className="p-4 text-center shadow-sm border-0 h-100 rounded-4 card-glow">
                     <motion.div
                       animate={{ y: [0, -10, 0] }}
                       transition={{ repeat: Infinity, duration: 2 }}
-                      className="mb-3"
+                      className="mb-3 card-icon-pulse"
                     >
                       <Icon size={40} color="#0d6efd" />
                     </motion.div>
@@ -167,13 +145,13 @@ function Home() {
         </p>
         <div className="ratio ratio-16x9">
           <iframe
-          title="City of Hope Church Nyatechi"
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.950823329179!2d34.6626!3d-0.7607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182cb70f6db79497%3A0xab95cf8bf2f38e62!2sPEFA%20CITY%20OF%20HOPE%20CHURCH%2C%20NYATECHI!5e0!3m2!1sen!2ske!4v1753419707062!5m2!1sen!2ske"
-  style={{ border: 0, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-  allowFullScreen=""
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+            title="City of Hope Church Nyatechi"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.950823329179!2d34.6626!3d-0.7607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182cb70f6db79497%3A0xab95cf8bf2f38e62!2sPEFA%20CITY%20OF%20HOPE%20CHURCH%2C%20NYATECHI!5e0!3m2!1sen!2ske!4v1753419707062!5m2!1sen!2ske"
+            style={{ border: 0, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </Container>
 
@@ -190,11 +168,7 @@ function Home() {
       </Container>
 
       {/* Floating Prayer Button */}
-      <a
-        href="/prayer"
-        className="btn btn-primary rounded-circle position-fixed"
-        style={{ bottom: "20px", right: "20px", zIndex: 1000 }}
-      >
+      <a href="/prayer" className="btn btn-primary rounded-circle floating-prayer-btn">
         🙏
       </a>
     </>

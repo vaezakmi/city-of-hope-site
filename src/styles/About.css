@@ -1,0 +1,195 @@
+/* =============================
+   GLOBAL STYLES
+============================= */
+
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  line-height: 1.7;
+  color: #2c3e50;
+  background-color: #fdfdfd;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.text-primary {
+  color: #0056b3 !important;
+}
+
+.text-danger {
+  color: #c0392b !important;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+/* =============================
+   SECTION HEADERS
+============================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1.text-primary {
+  font-size: 2.4rem;
+}
+
+h3.text-primary {
+  font-size: 1.75rem;
+}
+
+/* =============================
+   TIMELINE
+============================= */
+
+.timeline-container {
+  padding-left: 30px;
+  border-left: 3px solid #0056b3;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 25px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -16px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background-color: #0056b3;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  z-index: 1;
+  box-shadow: 0 0 0 2px #0056b3;
+}
+
+.timeline-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* =============================
+   GLASS EFFECT
+============================= */
+
+.bg-glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* =============================
+   CARDS (Mission / Vision / Generic)
+============================= */
+
+.card {
+  border-radius: 1.25rem !important;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* =============================
+   BUTTONS
+============================= */
+
+.btn-outline-primary {
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  border: 2px solid #0056b3;
+  color: #0056b3;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0056b3;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* =============================
+   IMAGES
+============================= */
+
+img.rounded-top {
+  border-top-left-radius: 1.25rem !important;
+  border-top-right-radius: 1.25rem !important;
+  object-fit: cover;
+}
+
+/* =============================
+   RESPONSIVENESS
+============================= */
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 20px;
+  }
+
+  .timeline-item {
+    padding-left: 15px;
+  }
+
+  .timeline-dot {
+    left: -12px;
+  }
+
+  .timeline-card {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .btn-outline-primary {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  h1.text-primary {
+    font-size: 1.75rem;
+  }
+
+  h3.text-primary {
+    font-size: 1.4rem;
+  }
+}
