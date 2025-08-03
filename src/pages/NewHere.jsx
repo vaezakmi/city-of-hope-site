@@ -3,22 +3,28 @@ import { FaChurch, FaHandshake, FaMapMarkedAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import "../styles/NewHere.css";
 
+// ✅ Import images directly so they're bundled correctly
+import cathedral1 from "../assets/cathedral.jpg";
+import cathedral2 from "../assets/cathedral2.jpg";
+import cathedral3 from "../assets/cathedral3.jpg";
+import cathedral4 from "../assets/cathedral4.jpg";
+
 const carouselImages = [
   {
-    src: "src/assets/cathedral.jpg",
+    src: cathedral1,
     alt: "Main Sanctuary",
   },
   {
-    src: "src/assets/cathedral2.jpg",
+    src: cathedral2,
     alt: "Spirit-filled Worship",
   },
   {
-    src: "src/assets/cathedral3.jpg",
+    src: cathedral3,
     alt: "Church Community",
   },
   {
-    src: "src/assets/cathedral4.jpg",
-    alt: "Church Community",
+    src: cathedral4,
+    alt: "Fellowship and Connection",
   },
 ];
 
@@ -71,7 +77,13 @@ function NewHere() {
               transition={{ duration: 0.3 }}
               className="img-wrapper"
             >
-              <Carousel fade interval={4000} controls={false} indicators={true} className="rounded-4 shadow">
+              <Carousel
+                fade
+                interval={4000}
+                controls={false}
+                indicators={true}
+                className="rounded-4 shadow"
+              >
                 {carouselImages.map((image, index) => (
                   <Carousel.Item key={index}>
                     <img
