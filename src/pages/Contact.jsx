@@ -2,7 +2,7 @@ import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import { Mail, MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import "../styles/Contact.css";
-import logo from "../assets/city-of-hope-logo.jpg"; // ✅ Correct image import
+import logo from "../assets/city-of-hope-logo.jpg"; // ✅ Ensure this file exists
 
 function Contact() {
   return (
@@ -69,24 +69,23 @@ function Contact() {
             transition={{ duration: 0.7 }}
           >
             <Card className="p-4 shadow-sm border-0 rounded-4 h-100">
-              {/* Address Section */}
-              <h5 className="text-primary mb-3">
-                <MapPin size={20} className="me-2" /> Our Address
-              </h5>
-
-              <div className="text-center mb-3">
+              {/* Logo and Address */}
+              <div className="text-center mb-4">
                 <img
                   src={logo}
                   alt="City of Hope Cathedral Logo"
-                  style={{ height: "180px", objectFit: "contain" }}
+                  style={{
+                    height: "150px",
+                    objectFit: "contain",
+                    maxWidth: "100%",
+                  }}
+                  className="mb-2"
                 />
+                <p className="mb-0">
+                  <strong>PEFA City of Hope Cathedral</strong><br />
+                  QJR3+M44, Nyatechi, Kenya
+                </p>
               </div>
-
-              <p className="text-center text-md-start">
-                <strong>PEFA City of Hope Cathedral</strong>
-                <br />
-                QJR3+M44, Nyatechi, Kenya
-              </p>
 
               {/* Service Times */}
               <h5 className="text-primary mt-4 mb-2">

@@ -1,31 +1,20 @@
 import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
 import { FaChurch, FaHandshake, FaMapMarkedAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // ✅ Import Link for navigation
 import "../styles/NewHere.css";
 
-// ✅ Import images directly so they're bundled correctly
+// ✅ Imported images
 import cathedral1 from "../assets/cathedral.jpg";
 import cathedral2 from "../assets/cathedral2.jpg";
 import cathedral3 from "../assets/cathedral3.jpg";
 import cathedral4 from "../assets/cathedral4.jpg";
 
 const carouselImages = [
-  {
-    src: cathedral1,
-    alt: "Main Sanctuary",
-  },
-  {
-    src: cathedral2,
-    alt: "Spirit-filled Worship",
-  },
-  {
-    src: cathedral3,
-    alt: "Church Community",
-  },
-  {
-    src: cathedral4,
-    alt: "Fellowship and Connection",
-  },
+  { src: cathedral1, alt: "Main Sanctuary" },
+  { src: cathedral2, alt: "Spirit-filled Worship" },
+  { src: cathedral3, alt: "Church Community" },
+  { src: cathedral4, alt: "Fellowship and Connection" },
 ];
 
 function NewHere() {
@@ -58,14 +47,16 @@ function NewHere() {
                 </li>
               </ul>
 
-              <Button
-                variant="primary"
-                size="lg"
-                href="/contact"
-                className="px-4 py-2 rounded-pill shadow-sm"
-              >
-                Plan Your Visit
-              </Button>
+              {/* ✅ Corrected navigation with react-router Link */}
+              <Link to="/contact">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="px-4 py-2 rounded-pill shadow-sm"
+                >
+                  Plan Your Visit
+                </Button>
+              </Link>
             </div>
           </Col>
 

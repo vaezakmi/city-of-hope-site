@@ -1,6 +1,7 @@
 import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { Book, Music, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImg from "../assets/hero.jpg";
 import "../styles/Home.css";
 
@@ -86,9 +87,11 @@ function Home() {
             animate={{ scale: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
           >
-            <Button href="/about" variant="primary" size="lg">
-              Learn More
-            </Button>
+            <Link to="/about">
+              <Button variant="primary" size="lg">
+                Learn More
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </div>
@@ -105,9 +108,11 @@ function Home() {
               </p>
             </Col>
             <Col md={4} className="mt-3 mt-md-0">
-              <Button href="/contact" variant="primary" size="lg" className="w-100">
-                Plan Your Visit
-              </Button>
+              <Link to="/contact">
+                <Button variant="primary" size="lg" className="w-100">
+                  Plan Your Visit
+                </Button>
+              </Link>
             </Col>
           </Row>
         </Card>
@@ -130,7 +135,7 @@ function Home() {
       <Container className="my-5">
         <h3 className="text-center fw-bold mb-4 text-primary">What We Offer</h3>
         <Row className="g-4 mb-5">
-          {[
+          {[ 
             { title: "Youth Ministry", desc: "Empowering the next generation.", icon: Users },
             { title: "Worship Experience", desc: "Spirit-led vibrant worship.", icon: Music },
             { title: "Bible Teaching", desc: "Deep and practical Bible study.", icon: Book },
