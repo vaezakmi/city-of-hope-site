@@ -1,6 +1,8 @@
 import { Container, Row, Col, Nav } from 'react-bootstrap';
 import { FaFacebookF, FaYoutube, FaInstagram } from 'react-icons/fa';
-import logo from '../assets/city-of-hope-logo.jpg'; // Replace with your actual logo path
+import logo from '../assets/city-of-hope-logo.jpg'; 
+import { Link } from "react-router-dom";
+
 
 function Footer() {
   return (
@@ -20,13 +22,14 @@ function Footer() {
           </Col>
 
           {/* Nav Links */}
-          <Col md={4} className="mb-4 mb-md-0">
-            <Nav className="justify-content-center">
-              <Nav.Link href="/" className="footer-link px-3">Home</Nav.Link>
-              <Nav.Link href="/contact" className="footer-link px-3">Contact</Nav.Link>
-              <Nav.Link href="/giving" className="footer-link px-3">Giving</Nav.Link>
-            </Nav>
-          </Col>
+         <Col md={4} className="mb-4 mb-md-0">
+  <Nav className="justify-content-center">
+    <Nav.Link as={Link} to="/" className="footer-link px-3">Home</Nav.Link>
+    <Nav.Link as={Link} to="/contact" className="footer-link px-3">Contact</Nav.Link>
+    <Nav.Link as={Link} to="/giving" className="footer-link px-3">Giving</Nav.Link>
+  </Nav>
+</Col>
+
 {/* Social Media Icons */}
 <Col md={4} className="text-center text-md-end">
   <div className="d-flex justify-content-center justify-content-md-end gap-3 social-icons">
