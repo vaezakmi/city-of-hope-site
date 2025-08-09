@@ -58,9 +58,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+  background-image: url('/images/cathedral28.jpg'); /* path relative to public folder */
+  background-size: cover;
+  background-position: center;
   color: var(--white);
 }
+
 
 .hero-overlay {
   position: absolute;
