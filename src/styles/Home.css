@@ -1,140 +1,838 @@
-/* === HERO SECTION === */
-.hero-section {
-  background-size: cover;
-  background-position: center;
+/* Home.css - PEFA City of Hope Cathedral Styles */
+
+/* CSS Variables for consistent theming */
+:root {
+  --primary-gold: #d4af37;
+  --primary-blue: #1e40af;
+  --deep-purple: #4c1d95;
+  --warm-white: #fefefe;
+  --soft-gray: #f8fafc;
+  --text-dark: #1a1a1a;
+  --text-light: #6b7280;
+  --gradient-primary: linear-gradient(135deg, var(--primary-gold), #f59e0b);
+  --gradient-secondary: linear-gradient(135deg, var(--primary-blue), var(--deep-purple));
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+.home-page {
+  overflow-x: hidden;
   position: relative;
-  padding: 6rem 1rem;
-  color: #fff;
-  text-align: center;
-  min-height: 75vh;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
 }
 
-.hero-section::before {
-  content: "";
+.parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at 30% 70%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+              linear-gradient(135deg, rgba(76, 29, 149, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%);
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floating-element {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(212, 175, 55, 0.6);
+  border-radius: 50%;
+  animation: float-particle linear infinite;
+  pointer-events: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  text-align: center;
+  color: white;
   max-width: 900px;
+  padding: 0 2rem;
+}
+
+.hero-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.hero-text.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hero-text .line {
+  display: block;
+  opacity: 0;
+  animation: slideInUp 0.8s ease forwards;
+}
+
+.hero-text .line:nth-child(1) { animation-delay: 0.2s; }
+.hero-text .line:nth-child(2) { animation-delay: 0.4s; }
+.hero-text .line:nth-child(3) { animation-delay: 0.6s; }
+
+.hero-text .highlight {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-large);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  opacity: 0.7;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+/* Join Us CTA Section */
+.join-cta {
+  padding: 4rem 0;
+  background: var(--soft-gray);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.cta-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+  position: relative;
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-icon {
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  padding: 1.5rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.cta-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.cta-text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.cta-text p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.cta-button {
+  background: var(--gradient-secondary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Scripture Section */
+.scripture-section {
+  padding: 6rem 0;
+  background: var(--gradient-secondary);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.scripture-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+.scripture-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-/* === GLOWING CARD EFFECT === */
-.card-glow {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+.scripture-quote {
+  opacity: 0.3;
+  margin-bottom: 2rem;
 }
 
-.card-glow:hover {
-  box-shadow: 0 0 25px rgba(13, 110, 253, 0.4);
-  transform: translateY(-5px);
-}
-
-/* === ICON PULSE === */
-.card-icon-pulse {
-  animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.08);
-  }
-}
-
-/* === TESTIMONIAL CARDS === */
-.carousel .card {
-  background-color: #fdfdfd;
-  border-radius: 1rem;
-}
-
-.carousel .blockquote-footer {
+.scripture-content h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 1rem;
   font-style: italic;
-  color: #555;
 }
 
-/* === VISIT SECTION CARDS === */
-.ratio iframe {
+.scripture-content p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gradient-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Ministry Section */
+.ministry-section {
+  padding: 6rem 0;
+  background: var(--warm-white);
+}
+
+.ministry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.ministry-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+.ministry-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ministry-card-inner {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ministry-card:hover .ministry-card-inner {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-large);
+}
+
+.ministry-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.ministry-card:hover .icon-ripple {
+  width: 100px;
+  height: 100px;
+}
+
+.ministry-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.ministry-content p {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.ministry-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-glow.active {
+  opacity: 1;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 6rem 0;
+  background: var(--soft-gray);
+}
+
+.testimonial-carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.testimonial-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  border: 0;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.5s ease;
 }
 
-/* === FLOATING PRAYER BUTTON === */
-.floating-prayer-btn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 1000;
+.testimonial-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.testimonial-content {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.quote-icon {
+  color: var(--primary-gold);
+  opacity: 0.3;
+  margin-bottom: 1rem;
+}
+
+.testimonial-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial-author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-gold);
+}
+
+.testimonial-author h4 {
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-author span {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-medium);
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.carousel-btn:hover {
+  background: var(--primary-gold);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+  left: -25px;
+}
+
+.carousel-btn.next {
+  right: -25px;
+}
+
+.testimonial-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active,
+.indicator:hover {
+  background: var(--primary-gold);
+  transform: scale(1.2);
+}
+
+/* Visit Section */
+.visit-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.visit-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.visit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-large);
+}
+
+.card-header {
+  padding: 2rem 2rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-header svg {
+  color: var(--primary-gold);
+}
+
+.card-header h3 {
   font-size: 1.5rem;
-  padding: 0.75rem 1rem;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  animation: bounceIn 1s ease;
+  font-weight: 700;
+  color: var(--text-dark);
 }
 
-@keyframes bounceIn {
+.map-container,
+.video-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+.map-container iframe,
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.card-footer {
+  padding: 1rem 2rem 2rem;
+}
+
+.card-footer p {
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@keyframes float-particle {
   0% {
-    transform: scale(0.8);
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
     opacity: 0;
   }
-
-  60% {
-    transform: scale(1.1);
+  10% {
     opacity: 1;
   }
-
+  90% {
+    opacity: 1;
+  }
   100% {
-    transform: scale(1);
+    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    opacity: 0;
   }
 }
 
-/* === GENERAL UTILITIES === */
-.text-primary {
-  color: #0d6efd !important;
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-5px) translateX(-50%);
+  }
 }
 
-.fw-bold {
-  font-weight: 700 !important;
-}
-
-.bg-light {
-  background-color: #f9f9f9 !important;
-}
-
-.shadow-sm {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
-}
-
-/* === RESPONSIVENESS === */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .hero-section {
-    padding: 4rem 1rem;
+  .hero-content {
+    padding: 0 1rem;
   }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .cta-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .ministry-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .visit-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .carousel-btn {
+    display: none;
+  }
+  
+  .testimonial-content {
+    padding: 2rem;
+  }
+  
+  .section-header {
+    margin-bottom: 3rem;
+  }
+}
 
-  .hero-content h1 {
-    font-size: 2rem;
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2.5rem;
   }
+  
+  .ministry-card-inner,
+  .testimonial-content {
+    padding: 1.5rem;
+  }
+  
+  .testimonial-container {
+    height: 350px;
+  }
+}
 
-  .hero-content p {
-    font-size: 1rem;
-  }
+/* Utility Classes */
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
 
-  .floating-prayer-btn {
-    bottom: 15px;
-    right: 15px;
-    padding: 0.5rem 0.75rem;
+.from-purple-500 {
+  --tw-gradient-from: #8b5cf6;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(139, 92, 246, 0));
+}
+
+.to-pink-500 {
+  --tw-gradient-to: #ec4899;
+}
+
+.from-blue-500 {
+  --tw-gradient-from: #3b82f6;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(59, 130, 246, 0));
+}
+
+.to-cyan-500 {
+  --tw-gradient-to: #06b6d4;
+}
+
+.from-green-500 {
+  --tw-gradient-from: #10b981;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(16, 185, 129, 0));
+}
+
+.to-emerald-500 {
+  --tw-gradient-to: #10b981;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
+  
+  .scroll-arrow {
+    animation: none;
+  }
+  
+  .floating-element {
+    animation: none;
+  }
+  
+  .parallax-bg {
+    animation: none;
+  }
+}
+
+/* Focus states for accessibility */
+.hero-btn:focus,
+.cta-button:focus,
+.carousel-btn:focus,
+.indicator:focus {
+  outline: 2px solid var(--primary-gold);
+  outline-offset: 2px;
 }

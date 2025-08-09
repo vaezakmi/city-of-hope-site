@@ -1,125 +1,573 @@
 /* === LEGENDARY GIVING PAGE STYLING === */
+/* CSS Custom Properties for Theming */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  --gold-gradient: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  --text-dark: #1a202c;
+  --text-light: #64748b;
+  --white-glass: rgba(255, 255, 255, 0.1);
+  --shadow-soft: 0 10px 50px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --border-radius: 24px;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-/* Section Header */
+/* Page Background */
+.giving-page {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.giving-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: var(--primary-gradient);
+  opacity: 0.03;
+  z-index: -1;
+}
+
+/* Animated Background Elements */
+.giving-page::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -200px;
+  width: 400px;
+  height: 400px;
+  background: var(--gold-gradient);
+  border-radius: 50%;
+  opacity: 0.05;
+  animation: float 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -30px) rotate(120deg); }
+  66% { transform: translate(-20px, 20px) rotate(240deg); }
+}
+
+/* Section Header Styling */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.section-badge {
+  display: inline-block;
+  background: var(--primary-gradient);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-soft);
+  animation: slideInDown 0.8s ease-out;
+}
+
 h2.text-primary {
-  font-size: 2.4rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  text-shadow: 1px 1px 3px rgba(0, 86, 179, 0.2);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  position: relative;
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+h2.text-primary::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--gold-gradient);
+  border-radius: 2px;
 }
 
 .text-muted {
-  font-size: 1.05rem;
-  color: #6c757d !important;
-  max-width: 650px;
+  font-size: 1.25rem;
+  color: var(--text-light) !important;
+  max-width: 700px;
   margin: 0 auto;
+  line-height: 1.7;
+  animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+/* Giving Cards Container */
+.giving-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
 }
 
 /* Giving Cards */
 .giving-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  padding: 2rem;
-  border-radius: 1.5rem !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: white;
+  background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%),
+    radial-gradient(circle at top right, rgba(102, 126, 234, 0.1), transparent 50%);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  animation: slideInUp 0.6s ease-out both;
+}
+
+.giving-card:nth-child(1) { animation-delay: 0.1s; }
+.giving-card:nth-child(2) { animation-delay: 0.2s; }
+.giving-card:nth-child(3) { animation-delay: 0.3s; }
+
+.giving-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: left 0.7s;
+  z-index: 1;
+}
+
+.giving-card:hover::before {
+  left: 100%;
+}
+
+.giving-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: var(--gold-gradient);
+  opacity: 0.1;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  transition: var(--transition);
 }
 
 .giving-card:hover {
-  transform: translateY(-8px) scale(1.015);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: var(--shadow-strong);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.giving-card:hover::after {
+  transform: translate(30%, -30%) scale(1.2);
+  opacity: 0.15;
+}
+
+/* Card Content */
+.giving-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.giving-card .card-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-gradient);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+  transition: var(--transition);
+}
+
+.giving-card:hover .card-icon {
+  transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+  box-shadow: 0 12px 36px rgba(102, 126, 234, 0.4);
+}
+
+.giving-card .card-icon svg {
+  color: white;
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .giving-card h5 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #222;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+  position: relative;
+  transition: var(--transition);
+}
+
+.giving-card:hover h5 {
+  color: #667eea;
+  transform: translateX(8px);
 }
 
 .giving-card p {
-  font-size: 0.98rem;
-  color: #444;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  transition: var(--transition);
+}
+
+.giving-card:hover p {
+  color: var(--text-dark);
+}
+
+.giving-card .feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.giving-card .feature-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.giving-card .feature-list li::before {
+  content: '✓';
+  width: 24px;
+  height: 24px;
+  background: var(--gold-gradient);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.giving-card:hover .feature-list li {
+  color: var(--text-dark);
+  transform: translateX(4px);
 }
 
 .giving-card small.text-muted {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   display: block;
-  margin-top: 1rem;
-  opacity: 0.7;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+  font-style: italic;
 }
 
-/* Icon Styling */
-.giving-card > div svg {
-  stroke-width: 2.2;
-  filter: drop-shadow(0 2px 4px rgba(0, 86, 179, 0.2));
-  transition: transform 0.3s ease;
-}
-
-.giving-card:hover > div svg {
-  transform: scale(1.1) rotate(2deg);
-}
-
-/* Link Styling */
+/* Enhanced Link Styling */
 .giving-card a {
-  color: #0d6efd;
+  color: #667eea;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  position: relative;
+  transition: var(--transition);
+}
+
+.giving-card a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--gold-gradient);
+  transition: width 0.3s ease;
 }
 
 .giving-card a:hover {
-  text-decoration: underline;
-  color: #003e94;
+  color: #764ba2;
+  transform: translateX(3px);
 }
 
-/* CTA Button */
+.giving-card a:hover::after {
+  width: 100%;
+}
+
+/* Premium CTA Button */
 .btn-outline-primary {
-  border-radius: 100px;
-  padding: 0.7rem 2rem;
-  font-weight: 600;
-  font-size: 1.05rem;
-  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.15);
-  transition: background-color 0.3s, box-shadow 0.3s ease;
+  background: transparent;
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white), var(--primary-gradient);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #667eea;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+  cursor: pointer;
+}
+
+.btn-outline-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-gradient);
+  transition: left 0.5s ease;
+  z-index: -1;
 }
 
 .btn-outline-primary:hover {
-  background-color: #0056b3;
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(0, 86, 179, 0.25);
+  color: white;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 16px 40px rgba(102, 126, 234, 0.35);
 }
 
-/* Section Fade-in (Optional Utility) */
-.fade-in-up {
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-  transform: translateY(30px);
+.btn-outline-primary:hover::before {
+  left: 0;
 }
 
-@keyframes fadeInUp {
+.btn-outline-primary:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Special Effects for Different Card Types */
+.giving-card.tithe-card {
+  background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%),
+    radial-gradient(circle at top right, rgba(255, 215, 0, 0.15), transparent 50%);
+}
+
+.giving-card.offering-card {
+  background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%),
+    radial-gradient(circle at top right, rgba(255, 107, 107, 0.1), transparent 50%);
+}
+
+.giving-card.mission-card {
+  background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%),
+    radial-gradient(circle at top right, rgba(118, 75, 162, 0.1), transparent 50%);
+}
+
+/* Animation Keyframes */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Responsive Design */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Pulse Animation for Important Cards */
+.giving-card.featured {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: var(--shadow-soft);
+  }
+  50% {
+    box-shadow: 0 15px 60px rgba(102, 126, 234, 0.15);
+  }
+}
+
+/* Progress Indicators */
+.giving-progress {
+  width: 100%;
+  height: 8px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.giving-progress-bar {
+  height: 100%;
+  background: var(--primary-gradient);
+  border-radius: 4px;
+  transition: width 1s ease-out;
+  position: relative;
+}
+
+.giving-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .giving-cards-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
   h2.text-primary {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
   }
 
   .giving-card {
-    padding: 1.5rem !important;
+    padding: 2rem;
   }
 
   .giving-card h5 {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
   }
 
   .btn-outline-primary {
-    font-size: 0.95rem;
-    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+
+  .giving-card .card-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .giving-card .card-icon svg {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-badge {
+    font-size: 12px;
+    padding: 10px 24px;
+    letter-spacing: 1px;
+  }
+
+  h2.text-primary {
+    font-size: 2rem;
+  }
+
+  .text-muted {
+    font-size: 1.1rem;
+  }
+
+  .giving-card {
+    padding: 1.5rem;
+  }
+
+  .giving-card h5 {
+    font-size: 1.2rem;
+  }
+
+  .giving-card p {
+    font-size: 1rem;
+  }
+
+  .btn-outline-primary {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.8rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-dark: #f7fafc;
+    --text-light: #a0aec0;
+  }
+
+  .giving-page {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  }
+
+  .giving-card {
+    background: rgba(45, 55, 72, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .giving-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .btn-outline-primary {
+    display: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .giving-card {
+    border: 2px solid #000;
+  }
+  
+  .btn-outline-primary {
+    border-width: 3px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
