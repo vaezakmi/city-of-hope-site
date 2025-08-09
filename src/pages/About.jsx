@@ -229,7 +229,7 @@ As we look ahead, we remain rooted in our mission: to bring hope to the city, an
   <Card.Text className="text-muted">Lead Shepherd</Card.Text>
   <Button
     variant="outline-primary"
-    href="https://wa.me/254721257929?text=Hello%20Rev.%20Zablon%20Moseti,%20I%20would%20like%20to%20request%20prayer."
+    href="https://wa.me/254721257919?text=Hello%20Rev.%20Zablon%20Moseti,%20I%20would%20like%20to%20request%20prayer."
     target="_blank"
     rel="noopener noreferrer"
   >
