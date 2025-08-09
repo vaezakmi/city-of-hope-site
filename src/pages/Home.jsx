@@ -22,19 +22,19 @@ const testimonials = [
     quote: "City of Hope transformed my life completely. I found not just a church, but a loving family that supports me through every season.",
     name: "Simon N.",
     role: "Children's Ministry Leader",
-    image: "src/assets/cathedral33.jpg"
+    image: "/images/cathedral33.jpg" // Updated path
   },
   {
     quote: "The worship experience here is absolutely incredible — so spirit-filled and authentic. Every service feels like a divine encounter.",
     name: "Elder Maggie.",
     role: "Church Elder",
-    image: "src/assets/cathedral37.jpg"
+    image: "/images/cathedral37.jpg" // Updated path
   },
   {
     quote: "Every Sunday leaves me completely uplifted and inspired to live out my faith throughout the week. This place is truly special.",
     name: "Joseph M.",
     role: "Men's Ministry Leader",
-    image: "src/assets/cathedral35.jpg"
+    image: "/images/cathedral35.jpg" // Updated path
   }
 ];
 
@@ -127,7 +127,14 @@ const TestimonialCarousel = () => {
               <Quote size={40} className="quote-icon" />
               <p>"{testimonial.quote}"</p>
               <div className="testimonial-author">
-                <img src={testimonial.image} alt={testimonial.name} />
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.name} 
+                  onError={(e) => {
+                    e.target.onerror = null; 
+                    e.target.src = "/images/placeholder.jpg"; // Fallback image
+                  }}
+                />
                 <div>
                   <h4>{testimonial.name}</h4>
                   <span>{testimonial.role}</span>

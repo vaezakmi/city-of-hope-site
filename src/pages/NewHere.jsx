@@ -12,159 +12,159 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
-  Cross} from 'lucide-react';
+  Cross
+} from 'lucide-react';
 import "../styles/NewHere.css";
 
-
-// Sample gallery images - replace with your actual images
+// Sample gallery images - updated paths for public folder
 const SAMPLE_IMAGES = [
   {
-    src: "src/assets/cathedral27.jpg",
+    src: "/images/cathedral27.jpg",
     alt: "",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral28.jpg",
+  {
+    src: "/images/cathedral28.jpg",
     alt: "The Church",
     name: "cathedral2.jpg"
   },
-   {
-    src: "src/assets/cathedral29.jpg",
+  {
+    src: "/images/cathedral29.jpg",
     alt: "The Youth",
     name: "cathedral3.jpg"
   },
-   {
-    src: "src/assets/cathedral30.jpg",
+  {
+    src: "/images/cathedral30.jpg",
     alt: "",
     name: "cathedral4.jpg"
   },
-   {
-    src: "src/assets/cathedral31.jpg",
+  {
+    src: "/images/cathedral31.jpg",
     alt: "",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral32.jpg",
+  {
+    src: "/images/cathedral32.jpg",
     alt: "",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral33.jpg",
+  {
+    src: "/images/cathedral33.jpg",
     alt: "Sunday school Teacher",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral34.jpg",
+  {
+    src: "/images/cathedral34.jpg",
     alt: "Sunday school Teacher",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral9.jpg",
+  {
+    src: "/images/cathedral9.jpg",
     alt: "Dance",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral24.jpg",
+  {
+    src: "/images/cathedral24.jpg",
     alt: "",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral19.jpg",
+  {
+    src: "/images/cathedral19.jpg",
     alt: "Dr From India",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral18.jpg",
+  {
+    src: "/images/cathedral18.jpg",
     alt: "Prophet",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral21.jpg",
+  {
+    src: "/images/cathedral21.jpg",
     alt: "Pst. Obi Bisare",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral16.jpg",
+  {
+    src: "/images/cathedral16.jpg",
     alt: "First church members",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral15.jpg",
+  {
+    src: "/images/cathedral15.jpg",
     alt: "Outdoor Worship Service",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral14.jpg",
+  {
+    src: "/images/cathedral14.jpg",
     alt: "Crusade",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral12.jpg",
+  {
+    src: "/images/cathedral12.jpg",
     alt: "Laying of Foundation",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral40.jpg",
+  {
+    src: "/images/cathedral40.jpg",
     alt: "Laying foundation",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral11.jpg",
+  {
+    src: "/images/cathedral11.jpg",
     alt: "The Church",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral10.jpg",
+  {
+    src: "/images/cathedral10.jpg",
     alt: "2019 ",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral7.jpg",
+  {
+    src: "/images/cathedral7.jpg",
     alt: "2022",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral4.jpg",
+  {
+    src: "/images/cathedral4.jpg",
     alt: "The Cathedral",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral37.jpg",
+  {
+    src: "/images/cathedral37.jpg",
     alt: "Church Elder",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral36.jpg",
+  {
+    src: "/images/cathedral36.jpg",
     alt: "Youth Director",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral38.jpg",
+  {
+    src: "/images/cathedral38.jpg",
     alt: "Church Elder",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral35.jpg",
+  {
+    src: "/images/cathedral35.jpg",
     alt: "Joseph Masero",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral30.jpg",
+  {
+    src: "/images/cathedral30.jpg",
     alt: "",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral26.jpg",
+  {
+    src: "/images/cathedral26.jpg",
     alt: "",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral2.jpg",
+  {
+    src: "/images/cathedral2.jpg",
     alt: "Worship Service",
     name: "cathedral1.jpg"
   },
-   {
-    src: "src/assets/cathedral39.jpg",
+  {
+    src: "/images/cathedral39.jpg",
     alt: "Women of Hope",
     name: "cathedral1.jpg"
   },
@@ -287,7 +287,15 @@ const GalleryCarousel = ({ images = [] }) => {
             key={i} 
             className={`carousel-slide ${i === currentIndex ? "active" : ""}`}
           >
-            <img src={img.src} alt={img.alt} loading="lazy" />
+            <img 
+              src={img.src} 
+              alt={img.alt} 
+              loading="lazy" 
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "/images/placeholder.jpg";
+              }}
+            />
             <div className="slide-overlay">
               <p>{img.alt}</p>
             </div>
@@ -324,6 +332,7 @@ const GalleryCarousel = ({ images = [] }) => {
     </div>
   );
 };
+
 
 // Lightbox Modal Component
 const LightboxModal = ({ images = [], startIndex = 0, onClose }) => {

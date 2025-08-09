@@ -1,14 +1,6 @@
-/* Bad — comment before @import triggers error */
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+/* This MUST be first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* Good — @import at top */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
-
-/* Now comments and styles */
-/* Import Google Fonts */
-
-/* ====== Layout & Root ====== */
 #root {
   max-width: 1280px;
   margin: 0 auto;
