@@ -197,7 +197,7 @@
 /* Join Us CTA Section */
 .join-cta {
   padding: 4rem 0;
-  background: var(--soft-gray);
+  background: var(--gradient-primary);
 }
 
 .container {
@@ -207,7 +207,7 @@
 }
 
 .cta-card {
-  background: white;
+  background: orange;
   border-radius: 20px;
   box-shadow: var(--shadow-medium);
   overflow: hidden;
@@ -240,7 +240,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .cta-text p {
@@ -250,7 +250,7 @@
 
 .cta-button {
   background: var(--primary-gold);
-  color: white;
+  color: rgb(6, 54, 87);
   border: none;
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -270,7 +270,7 @@
 /* Scripture Section */
 .scripture-section {
   padding: 6rem 0;
-  background: var(--gradient-secondary);
+  background: var(--gradient-primary);
   color: white;
   text-align: center;
   position: relative;
@@ -602,7 +602,7 @@
 /* Visit Section */
 .visit-section {
   padding: 6rem 0;
-  background: white;
+  background: rgb(255, 255, 255);
 }
 
 .visit-grid {
